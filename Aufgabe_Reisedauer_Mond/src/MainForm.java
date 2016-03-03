@@ -9,8 +9,9 @@ public class MainForm extends JDialog {
     private JTextField textFieldGeschwindigkeit;
     private JButton reisedauerBerechnenButton;
     private JTextField textFieldReisedauer;
-    private JRadioButton radioButton1;
     private JButton buttonOK;
+
+    private ButtonGroup radioButtonGroup = new ButtonGroup();
 
     private static final int DURCHSCHNITTLICHE_ENTFERNUNG = 385000;
 
@@ -24,6 +25,9 @@ public class MainForm extends JDialog {
                 calculateDuration();
             }
         });
+
+        this.radioButtonGroup.add(this.inTagenRadioButton);
+        this.radioButtonGroup.add(this.inStundenRadioButton);
     }
 
     /**
@@ -32,17 +36,24 @@ public class MainForm extends JDialog {
      */
     private int calculateDuration() {
         double dauerInStunden = 0;
+        double dauerInTagen = 0;
 
         try {
             String geschwindigkeitString = textFieldGeschwindigkeit.getText();
             double geschwindigkeit = Double.parseDouble(geschwindigkeitString);
             dauerInStunden = DURCHSCHNITTLICHE_ENTFERNUNG / geschwindigkeit;
+            dauerInTagen = dauerInStunden / 24;
         } catch(NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Bitte geben Sie eine Ganzzahl ein.");
             return 0;
         }
 
-        textFieldReisedauer.setText(Double.toString(dauerInStunden));
+        if(this.inStundenRadioButton.isSelected()) {
+            textFieldReisedauer.setText(Double.toString(dauerInStunden));
+        }
+        else if(this.inTagenRadioButton.isSelected()) {
+            textFieldReisedauer.setText(Double.toString(dauerInTagen));
+        }
 
         return 0;
     }
