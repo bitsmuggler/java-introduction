@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.function.Function;
 
 public class MainForm extends JDialog {
     private JPanel contentPane;
@@ -8,20 +9,18 @@ public class MainForm extends JDialog {
     private JTextField textFieldZahl;
     private JTextField textFieldQuersumme;
     private JButton buttonBerechnen;
-    private JButton buttonOK;
 
     public MainForm() {
         setContentPane(contentPane);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
         buttonBerechnen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String zahl = textFieldZahl.getText();
 
                 try {
-                    int number = Integer.parseInt(zahl);
-                    int result = calculateQuersumme(number);
+                    int result = Integer.parseInt(zahl);
+                    result = calculateQuersumme(result);
 
                     if(checkBox1StelligeQuersummeBerechnen.isSelected()) {
                         result = calculateQuersumme(result);
@@ -37,18 +36,35 @@ public class MainForm extends JDialog {
     }
 
     /**
-     * Berchnet die Quersumme
-     * @param number Zahl aus der die Quersumme berechnet werden soll.
+     * Berechnet die Quersumme der übergebenen Zahl.
+     * @param value Zahl
      * @return Quersumme
      */
-    private int calculateQuersumme(int number) {
+    private int calculateQuersumme(int value) {
 
-        int summe = 0;
-        while (number > 0) {
-            summe = summe + number % 10;
-            number = number / 10;
-        }
-        return summe;
+        //Quersummelogik
+        Function<Integer, Integer> logic = x -> {
+            int summe = 0;
+
+            while(x > 0) {
+                summe = summe + x % 10;
+                x = x / 10;
+            }
+
+            return summe;
+        };
+
+        return calculate(value, logic);
+    }
+
+    /**
+     * Führt die mathematische Operation an der übergebenen Zahl aus.
+     * @param value Zahl
+     * @param logic Generische Berechnungslogik
+     * @return Berechnete Zahl.
+     */
+    private int calculate(int value, Function<Integer, Integer> logic) {
+       return logic.apply(value);
     }
 
     public static void main(String[] args) {
