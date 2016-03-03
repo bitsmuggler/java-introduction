@@ -47,6 +47,14 @@ public class MainForm extends JDialog {
         //Höhe 'Text' vom Textfeld holen
         String textHeight = this.textFieldHeight.getText();
 
+        //Überprüfe die Eingaben, falls leer zeige Meldung an.
+        if(textWidth.equals("") || textHeight.equals("")) {
+            //Meldung anzeigen.
+            showMessageBox();
+            return;
+        }
+
+
         //Breite 'Text' (String) in ein Double konvertieren.
         double width = Double.parseDouble(textWidth);
 
@@ -58,6 +66,13 @@ public class MainForm extends JDialog {
 
         //Resultat auf GUI setzen.
         this.textFieldResult.setText(String.valueOf(result));
+    }
+
+    /**
+     * Zeigt eine Fehlermeldung an.
+     */
+    private void showMessageBox() {
+        JOptionPane.showMessageDialog(null, "Die Breite oder die Höhe ist leer. Bitte überprüfe deine Eingabe.");
     }
 
     /**
