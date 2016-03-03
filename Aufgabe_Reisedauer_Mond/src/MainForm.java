@@ -9,8 +9,6 @@ public class MainForm extends JDialog {
     private JTextField textFieldGeschwindigkeit;
     private JButton reisedauerBerechnenButton;
     private JTextField textFieldReisedauer;
-    private JButton buttonOK;
-
     private ButtonGroup radioButtonGroup = new ButtonGroup();
 
     private static final int DURCHSCHNITTLICHE_ENTFERNUNG = 385000;
@@ -18,11 +16,12 @@ public class MainForm extends JDialog {
     public MainForm() {
         setContentPane(contentPane);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
         reisedauerBerechnenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                calculateDuration();
+                String geschwindigkeit = textFieldGeschwindigkeit.getText();
+                double geschwindigkeitKmH = convertStringToDouble(geschwindigkeit);
+                calculateDuration(geschwindigkeitKmH);
             }
         });
 
@@ -30,34 +29,61 @@ public class MainForm extends JDialog {
         this.radioButtonGroup.add(this.inStundenRadioButton);
     }
 
-    /**
-     * Berechnet die Dauer zum Mond.
-     * @return
-     */
-    private int calculateDuration() {
-        double dauerInStunden = 0;
-        double dauerInTagen = 0;
 
+    /**
+     * Berechnet die Dauer zum Mond anhand der eingegebenen Geschwindigkeit (Km/h) und der ausgewählten Option (Tage / Stunden).
+     * @param geschwindigkeitKmh Geschwindigkeit (Km/h)
+     */
+    private void calculateDuration(double geschwindigkeitKmh) {
+        double result = 0;
+
+        if(this.inStundenRadioButton.isSelected()) {
+            result = calculateInStunden(geschwindigkeitKmh);
+        }
+        else if(this.inTagenRadioButton.isSelected()) {
+            result = calculateInTagen(geschwindigkeitKmh);
+        }
+
+        textFieldReisedauer.setText(Double.toString(result));
+    }
+
+    /**
+     * Berechnet die Dauer zum Mond in Stunden (h)
+     * @param geschwindigkeitKmH Geschwindigkeit (Km/h)
+     * @return Dauer zum Mond in Stunden (h)
+     */
+    private double calculateInStunden(double geschwindigkeitKmH) {
+        return DURCHSCHNITTLICHE_ENTFERNUNG / geschwindigkeitKmH;
+    }
+
+    /**
+     * Berechnet die Dauer zum Mond in Tagen (d).
+     * @param geschwindigkeitKmH Geschwindigkeit (Km/h).
+     * @return Dauer zum Mond in Tagen (d)
+     */
+    private double calculateInTagen(double geschwindigkeitKmH) {
+        return this.calculateInStunden(geschwindigkeitKmH) / 24;
+    }
+
+    /**
+     * Konvertiert einen String in einen Double-Wert.
+     * @param value String
+     * @return Wert als Double
+     */
+    private double convertStringToDouble(String value) {
         try {
             String geschwindigkeitString = textFieldGeschwindigkeit.getText();
-            double geschwindigkeit = Double.parseDouble(geschwindigkeitString);
-            dauerInStunden = DURCHSCHNITTLICHE_ENTFERNUNG / geschwindigkeit;
-            dauerInTagen = dauerInStunden / 24;
+            return Double.parseDouble(geschwindigkeitString);
         } catch(NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Bitte geben Sie eine Ganzzahl ein.");
             return 0;
         }
-
-        if(this.inStundenRadioButton.isSelected()) {
-            textFieldReisedauer.setText(Double.toString(dauerInStunden));
-        }
-        else if(this.inTagenRadioButton.isSelected()) {
-            textFieldReisedauer.setText(Double.toString(dauerInTagen));
-        }
-
-        return 0;
     }
 
+    /**
+     * Eintrittspunkt für deine Anwendung
+     * @param args Optionale Parameter
+     */
     public static void main(String[] args) {
         MainForm dialog = new MainForm();
         dialog.pack();
