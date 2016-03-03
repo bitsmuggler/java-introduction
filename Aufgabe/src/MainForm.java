@@ -22,7 +22,13 @@ public class MainForm extends JDialog {
                 try {
                     int number = Integer.parseInt(zahl);
                     int result = calculateQuersumme(number);
+
+                    if(checkBox1StelligeQuersummeBerechnen.isSelected()) {
+                        result = calculateQuersumme(result);
+                    }
+
                     textFieldQuersumme.setText(Integer.toString(result));
+
                 } catch(NumberFormatException exception) {
                     JOptionPane.showMessageDialog(null, "Bitte geben Sie eine Ganzzahl ein.");
                 }
