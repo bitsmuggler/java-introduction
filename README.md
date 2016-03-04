@@ -8,23 +8,23 @@ Die Aufgabe ist im jeweiligen README.MD im Ordner der Aufgabe beschrieben.
 
 ## Verfügbare Aufgaben
 
-### Aufgabe: Fläche eines Rechtecks berechnen
+### Fläche eines Rechtecks berechnen
 ```
 git checkout Aufgabe_Flaeche_Rechteck
 ```
-### Aufgabe: Benutzereingaben überprüfen
+### Benutzereingaben überprüfen
 ```
 git checkout Aufgabe_Benutzereingaben_ueberpruefen
 ```
-### Aufgabe: Lotterie
+### Lotterie
 ```
 git checkout Aufgabe_Lotterie
 ```
-### Aufgabe: Reisedauer zum Mond
+### Reisedauer zum Mond
 ```
 git checkout Aufgabe_Reisedauer_Mond
 ```
-### Aufgabe: Quersumme berechnen
+### Quersumme berechnen
 ```
 git checkout Aufgabe_Quersumme
 ```
