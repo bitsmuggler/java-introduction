@@ -28,5 +28,8 @@ git checkout Aufgabe_Reisedauer_Mond
 ```
 git checkout Aufgabe_Quersumme
 ```
-
+### Mehrfach Eingaben
+```
+git checkout Aufgabe_Mehrfach_Eingaben
+```
 
