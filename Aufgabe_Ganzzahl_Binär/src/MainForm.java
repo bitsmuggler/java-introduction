@@ -1,9 +1,11 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MainForm extends JDialog {
     private JPanel contentPane;
-    private JTextField textField1;
-    private JTextField textField2;
+    private JTextField textFieldInteger;
+    private JTextField textFieldBinar;
     private JButton vearbeitungButton;
     private JButton buttonOK;
 
@@ -11,6 +13,14 @@ public class MainForm extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
+        vearbeitungButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int number = Integer.parseInt(textFieldInteger.getText());
+                String binaryRepresenation = Integer.toBinaryString(number);
+                textFieldBinar.setText(binaryRepresenation);
+            }
+        });
     }
 
     public static void main(String[] args) {
