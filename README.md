@@ -32,4 +32,8 @@ git checkout Aufgabe_Quersumme
 ```
 git checkout Aufgabe_Mehrfach_Eingaben
 ```
+### Ganzahlen nach Binär
+```
+git checkout Aufgabe_Ganzzahl_Binaer
+```
 
