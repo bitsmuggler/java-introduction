@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class MainForm extends JDialog {
@@ -15,6 +16,7 @@ public class MainForm extends JDialog {
 
     private int randomNumber = this.getRandomNumber();
     private int numberOfTryouts = 0;
+    private ArrayList<Integer> inputs = new ArrayList<>();
 
     public MainForm() {
         setContentPane(contentPane);
@@ -49,16 +51,27 @@ public class MainForm extends JDialog {
         return Integer.parseInt(textFieldInput.getText());
     }
 
+    private boolean checkInput(int input) {
+        if(inputs.contains(input)) {
+            JOptionPane.showMessageDialog(null, "Diese Zahl wurde bereits einmal eingegeben.");
+            return false;
+        }
+
+        inputs.add(input);
+        return true;
+    }
     private boolean checkNumber() {
         int input = this.getInput();
 
-        if(input > this.randomNumber) {
-            textFieldResult.setText("Zahl zu gross!");
-        } else if(input < this.randomNumber) {
-            textFieldResult.setText("Zahl zu klein!");
-        } else if(input == this.randomNumber) {
-            textFieldResult.setText("Zahl stimmt!");
-            return true;
+        if(checkInput(input)) {
+            if(input > this.randomNumber) {
+                textFieldResult.setText("Zahl zu gross!");
+            } else if(input < this.randomNumber) {
+                textFieldResult.setText("Zahl zu klein!");
+            } else if(input == this.randomNumber) {
+                textFieldResult.setText("Zahl stimmt!");
+                return true;
+            }
         }
 
         return false;
