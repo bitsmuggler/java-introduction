@@ -36,4 +36,8 @@ git checkout Aufgabe_Mehrfach_Eingaben
 ```
 git checkout Aufgabe_Ganzzahl_Binaer
 ```
+### Zahlenraten
+```
+git checkout Aufgabe_Zahlenraten
+```
 
