@@ -9,18 +9,31 @@ public class MainForm extends JDialog {
     private JTextField textFieldResult;
     private JButton prüfenButton;
     private JButton beendenButton;
+    private JTextField textFieldTryouts;
+    private JLabel labelTryouts;
     private JButton buttonOK;
 
     private int randomNumber = this.getRandomNumber();
+    private int numberOfTryouts = 0;
 
     public MainForm() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
+
+        labelTryouts.setVisible(false);
+        textFieldTryouts.setVisible(false);
+
         prüfenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                checkNumber();
+                numberOfTryouts++;
+
+                if(checkNumber()) {
+                    labelTryouts.setVisible(true);
+                    textFieldTryouts.setVisible(true);
+                    textFieldTryouts.setText(Integer.toString(numberOfTryouts));
+                }
             }
         });
     }
@@ -36,7 +49,7 @@ public class MainForm extends JDialog {
         return Integer.parseInt(textFieldInput.getText());
     }
 
-    private void checkNumber() {
+    private boolean checkNumber() {
         int input = this.getInput();
 
         if(input > this.randomNumber) {
@@ -45,7 +58,10 @@ public class MainForm extends JDialog {
             textFieldResult.setText("Zahl zu klein!");
         } else if(input == this.randomNumber) {
             textFieldResult.setText("Zahl stimmt!");
+            return true;
         }
+
+        return false;
     }
 
     private int getRandomNumber() {
