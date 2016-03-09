@@ -43,7 +43,14 @@ public class MainForm extends JDialog {
      * @return Text mit ersetztem Wort
      */
     private String replaceText(String currentText, String searchWord, String replaceWord) {
-        return currentText.replace(searchWord, replaceWord);
+
+        //Überprüfe, ob das Wort im Text vorkommt.
+        if(currentText.indexOf(searchWord) >= 0) {
+            return currentText.replace(searchWord, replaceWord);
+        }
+
+        JOptionPane.showMessageDialog(null, "Der Text " + searchWord + " wurde nicht gefunden.");
+        return currentText;
     }
 
 
