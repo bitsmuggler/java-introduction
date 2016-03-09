@@ -40,4 +40,7 @@ git checkout Aufgabe_Ganzzahl_Binaer
 ```
 git checkout Aufgabe_Zahlenraten
 ```
-
+### Zahlenraten
+```
+git checkout Aufgabe_String_Manipulation
+```
