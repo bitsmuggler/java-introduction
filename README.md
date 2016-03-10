@@ -8,47 +8,47 @@ Die Aufgabe ist im jeweiligen README.MD im Ordner der Aufgabe beschrieben.
 
 ## Verfügbare Aufgaben
 
-### Fläche eines Rechtecks berechnen
+### 1. Fläche eines Rechtecks berechnen
 ```
 git checkout Aufgabe_Flaeche_Rechteck
 ```
-### Benutzereingaben überprüfen
+### 2. Benutzereingaben überprüfen
 ```
 git checkout Aufgabe_Benutzereingaben_ueberpruefen
 ```
-### Lotterie
+### 3. Lotterie
 ```
 git checkout Aufgabe_Lotterie
 ```
-### Reisedauer zum Mond
+### 4. Reisedauer zum Mond
 ```
 git checkout Aufgabe_Reisedauer_Mond
 ```
-### Quersumme berechnen
+### 5. Quersumme berechnen
 ```
 git checkout Aufgabe_Quersumme
 ```
-### Mehrfach Eingaben
+### 6. Mehrfach Eingaben
 ```
 git checkout Aufgabe_Mehrfach_Eingaben
 ```
-### Ganzahlen nach Binär
+### 7. Ganzahlen nach Binär
 ```
 git checkout Aufgabe_Ganzzahl_Binaer
 ```
-### Zahlenraten
+### 8. Zahlenraten
 ```
 git checkout Aufgabe_Zahlenraten
 ```
-### String Manipulation
+### 9. String Manipulation
 ```
 git checkout Aufgabe_String_Manipulation
 ```
-### Text suchen und ersetzen
+### 10. Text suchen und ersetzen
 ```
 git checkout Aufgabe_Text_suchen_ersetzen
 ```
-### HTML Auszeichnungen entfernen
+### 11. HTML Auszeichnungen entfernen
 ```
 git checkout Aufgabe_Html_Auszeichnungen_entfernen
 ```
