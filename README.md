@@ -52,3 +52,8 @@ git checkout Aufgabe_Text_suchen_ersetzen
 ```
 git checkout Aufgabe_Html_Auszeichnungen_entfernen
 ```
+### 12. E-Mail Adresse und URL validieren
+```
+git checkout Aufgabe_Mail_Url_Validierung
+```
+
