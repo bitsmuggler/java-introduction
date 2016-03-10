@@ -48,3 +48,7 @@ git checkout Aufgabe_String_Manipulation
 ```
 git checkout Aufgabe_Text_suchen_ersetzen
 ```
+### HTML Auszeichnungen entfernen
+```
+git checkout Aufgabe_Html_Auszeichnungen_entfernen
+```
