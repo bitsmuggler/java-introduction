@@ -27,7 +27,9 @@
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <text value="&lt;html&gt;&#10;&lt;head&gt;&#10;&lt;/head&gt;&#10;&lt;body&gt;&#10;&lt;h1&gt;Titel&lt;/h1&gt;&#10;&lt;p&gt;Absatz&lt;/p&gt;&#10;&lt;/body&gt;"/>
+        </properties>
       </component>
       <component id="356d6" class="javax.swing.JButton" binding="HTMLEntfernenButton" default-binding="true">
         <constraints>

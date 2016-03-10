@@ -16,9 +16,21 @@ public class MainForm extends JDialog {
         HTMLEntfernenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                String input = textAreaHtml.getText();
+                String result = removeHtmlTags(input);
+                textAreaWithoutHtml.setText(result);
             }
         });
+    }
+
+    /**
+     * Entfernt aus HTML-Markup sämtliche HTML-Tags
+     * @param input HTML-Markup
+     * @return Inhalte (ohne HTML-Markup)
+     */
+    private String removeHtmlTags(String input) {
+        return input.replaceAll("<[^>]*>", "")
+                    .replaceAll("\\s{2,}", "");
     }
 
     public static void main(String[] args) {
