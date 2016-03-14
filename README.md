@@ -64,4 +64,9 @@ git checkout Aufgabe_Quadrat_zeichnen
 ```
 git checkout Aufgabe_Tannenbaum_zeichnen
 ```
+### 15. Aufgabe Dateiname extrahieren
+```
+git checkout Aufgabe_Dateiname_extrahieren
+```
+
 
