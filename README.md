@@ -62,6 +62,6 @@ git checkout Aufgabe_Quadrat_zeichnen
 ```
 ### 14. Tannenbaum zeichnen
 ```
-git checkout Tannenbaum_zeichnen
+git checkout Aufgabe_Tannenbaum_zeichnen
 ```
 
